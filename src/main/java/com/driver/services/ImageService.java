@@ -49,21 +49,28 @@ public class ImageService {
     public void deleteImage(Image image){
 
        // Image image=findById(image1.getId());
+        //888888888888888888
+        if(imageRepository2.existsById(image.getId())){
 
-        Blog blog=image.getBlog();
+            Blog blog = image.getBlog();
 
-        List<Image> list= blog.getImageList();
+            List<Image> list = blog.getImageList();
 
-        list.remove(image);
+            list.remove(image);
 
-        blog.setImageList(list);
+            blog.setImageList(list);
 
-        imageRepository2.delete(image);
+            imageRepository2.delete(image);
+        }
     }
 
     public Image findById(int id) {
-        Image image=imageRepository2.findById(id).get();
-        deleteImage(image);
+
+        Image image=new Image();
+        if(imageRepository2.existsById(id)) {
+            image = imageRepository2.findById(id).get();
+            deleteImage(image);
+        }
         return image;
     }
 

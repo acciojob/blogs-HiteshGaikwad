@@ -60,7 +60,10 @@ public class BlogService {
 
     public Blog findBlogById(int blogId){
         //find a blog
-        Blog blog= blogRepository1.findById(blogId).get();
+        Blog blog=new Blog();
+        if(blogRepository1.existsById(blogId)) {
+            blog = blogRepository1.findById(blogId).get();
+        }
         return  blog;
     }
 
@@ -83,7 +86,9 @@ public class BlogService {
         blog.setImageList(imageList);
         image.setBlog(blog);
 
-        blogRepository1.save(blog);
+        //blogRepository1.save(blog);
+        //8888888888888888888888
+        imageRepository.save(image);
     }
 
     public void deleteBlog(int blogId){
