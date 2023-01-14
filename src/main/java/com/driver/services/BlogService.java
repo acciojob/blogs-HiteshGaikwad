@@ -89,9 +89,9 @@ public class BlogService {
 
         blog.setImageList(imageList);
         image.setBlog(blog);
-        blogRepository1.save(blog);
+        //blogRepository1.save(blog);
         //8888888888888888888888
-       // imageRepository.save(image);
+        imageRepository.save(image);
     }
 
     public void deleteBlog(int blogId){
