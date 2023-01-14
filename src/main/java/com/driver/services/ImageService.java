@@ -37,10 +37,13 @@ public class ImageService {
             newBlog.setImageList(list);
 
             image.setBlog(newBlog);
+            blogRepository.save(newBlog);
         }else {
             list.add(image);
+            imageRepository2.save(image);
         }
-            //blogRepository.save(newBlog);
+
+
       return image;
     }
 
