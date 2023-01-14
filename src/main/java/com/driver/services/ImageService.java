@@ -51,7 +51,7 @@ public class ImageService {
 
        // Image image=findById(image1.getId());
         //888888888888888888
-        if(imageRepository2.existsById(image.getId())){
+        //if(imageRepository2.existsById(image.getId())){
 
             Blog blog = image.getBlog();
 
@@ -62,16 +62,16 @@ public class ImageService {
             blog.setImageList(list);
 
             imageRepository2.delete(image);
-        }
+       // }
     }
 
     public Image findById(int id) {
 
         Image image=new Image();
-        if(imageRepository2.existsById(id)) {
+        //if(imageRepository2.existsById(id)) {
             image = imageRepository2.findById(id).get();
-            deleteImage(image);
-        }
+           // deleteImage(image);
+       // }
         return image;
     }
 
