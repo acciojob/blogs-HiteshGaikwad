@@ -26,20 +26,19 @@ public class ImageService {
         image.setDimensions(dimensions);
         image.setDescription(description);
 
-        List<Image> list=new ArrayList<>();
+        image.setBlog(blog);
 
-        int id=blog.getId();
+        List<Image> list=blog.getImageList();
 
-            Blog newBlog = blogRepository.findById(id).get();
+        if(list==null) {
+           list= new ArrayList<>();
+        }
+        list.add(image);
 
-             list = newBlog.getImageList();
-            list.add(image);
+        blog.setImageList(list);
 
-            newBlog.setImageList(list);
-
-            image.setBlog(newBlog);
-            blogRepository.save(newBlog);
-
+        imageRepository2.save(image);
+            blogRepository.save(blog);
       return image;
     }
 
