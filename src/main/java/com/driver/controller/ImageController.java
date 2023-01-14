@@ -1,6 +1,5 @@
 package com.driver.controller;
 
-import com.driver.ResponseDto.ImageResponseDto;
 import com.driver.models.Blog;
 import com.driver.models.Image;
 import com.driver.services.ImageService;
@@ -17,10 +16,10 @@ public class ImageController {
     ImageService imageService;
 
     @PostMapping("/create")
-    public ResponseEntity<ImageResponseDto> createAndReturn(@RequestBody() Blog blog,
-                                                            @RequestParam("description") String description,
-                                                            @RequestParam("dimensions") String dimensions) {
-        ImageResponseDto image = imageService.createAndReturn(blog,description,dimensions);
+    public ResponseEntity<Image> createAndReturn(@RequestBody() Blog blog,
+                                                 @RequestParam("description") String description,
+                                                 @RequestParam("dimensions") String dimensions) {
+        Image image = imageService.createAndReturn(blog,description,dimensions);
         return new ResponseEntity<>(image, HttpStatus.CREATED);
     }
 

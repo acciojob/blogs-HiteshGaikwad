@@ -1,13 +1,11 @@
 package com.driver.services;
 
-import com.driver.ResponseDto.ImageResponseDto;
 import com.driver.models.*;
 import com.driver.repositories.BlogRepository;
 import com.driver.repositories.ImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -19,7 +17,7 @@ public class ImageService {
     BlogRepository blogRepository;
 
 
-    public ImageResponseDto createAndReturn(Blog blog, String description, String dimensions){
+    public Image createAndReturn(Blog blog, String description, String dimensions){
         //create an image based on given parameters and add it to the imageList of given blog
 
         int id=blog.getId();
@@ -38,14 +36,14 @@ public class ImageService {
 
       blogRepository.save(newBlog);
 
-      ImageResponseDto imageDto=new ImageResponseDto();
+//      ImageResponseDto imageDto=new ImageResponseDto();
+//
+//      imageDto.setId(image.getId());
+//      imageDto.setDescription(image.getDescription());
+//      imageDto.setDimensions(image.getDimensions());
 
-      imageDto.setId(image.getId());
-      imageDto.setDescription(image.getDescription());
-      imageDto.setDimensions(image.getDimensions());
 
-
-      return imageDto;
+      return image;
     }
 
     public void deleteImage(Image image){
