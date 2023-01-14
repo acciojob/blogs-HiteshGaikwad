@@ -70,15 +70,15 @@ public class ImageService {
     public int countImagesInScreen(Image image, String screenDimensions) {
         //Find the number of images of given dimensions that can fit in a screen having `screenDimensions`
         //In case the image is null, return 0
-        if(!imageRepository2.existsById(image)){
-            return 0;
-        }
-        Image image= imageRepository2.findById(image).get();
-
-        int imageSize= Integer.parseInt(image.getDimensions());
-        int screenSize= Integer.parseInt(screenDimensions);
-
-        int ans= screenSize/imageSize;
-        return ans;
+//        if(!imageRepository2.existsById(image)){
+//            return 0;
+//        }
+//        Image image= imageRepository2.findById(image).get();
+//
+//        int imageSize= Integer.parseInt(image.getDimensions());
+//        int screenSize= Integer.parseInt(screenDimensions);
+//
+//        int ans= screenSize/imageSize;
+        return 0;
     }
 }
