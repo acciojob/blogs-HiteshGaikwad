@@ -27,6 +27,14 @@ public class Blog {
         this.content = content;
     }
 
+    public Date getPubDate() {
+        return pubDate;
+    }
+
+    public void setPubDate(Date pubDate) {
+        this.pubDate = pubDate;
+    }
+
     public Blog() {
     }
 
@@ -62,12 +70,12 @@ public class Blog {
         this.user = user;
     }
 
-    public List<Image> getListOfImages() {
-        return listOfImages;
+    public List<Image> getImagesList() {
+        return imagesList;
     }
 
-    public void setListOfImages(List<Image> listOfImages) {
-        this.listOfImages = listOfImages;
+    public void setImagesList(List<Image> imagesList) {
+        this.imagesList = imagesList;
     }
 
     @ManyToOne
@@ -75,5 +83,5 @@ public class Blog {
     private User user;
 
     @OneToMany(mappedBy = "blog", cascade = CascadeType.ALL)
-    private List<Image> listOfImages;
+    private List<Image> imagesList;
 }

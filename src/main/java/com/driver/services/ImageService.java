@@ -25,7 +25,7 @@ public class ImageService {
         int id=blog.getId();
         Blog newBlog=blogRepository.findById(id).get();
 
-        List<Image> list=newBlog.getListOfImages();
+        List<Image> list=newBlog.getImagesList();
 
       Image image=new Image();
       image.setDimension(dimensions);
@@ -33,7 +33,7 @@ public class ImageService {
 
       list.add(image);
 
-      newBlog.setListOfImages(list);
+      newBlog.setImagesList(list);
       image.setBlog(newBlog);
 
       blogRepository.save(newBlog);
@@ -42,7 +42,7 @@ public class ImageService {
 
       imageDto.setId(image.getId());
       imageDto.setDescription(image.getDescription());
-      imageDto.setDimension(image.getDimension());
+      imageDto.setDimension(image.getDimensions());
 
 
       return imageDto;
@@ -54,11 +54,11 @@ public class ImageService {
 
         Blog blog=image.getBlog();
 
-        List<Image> list= blog.getListOfImages();
+        List<Image> list= blog.getImagesList();
 
         list.remove(image);
 
-        blog.setListOfImages(list);
+        blog.setImagesList(list);
 
         imageRepository2.delete(image);
     }
@@ -77,7 +77,7 @@ public class ImageService {
         }
         Image image= imageRepository2.findById(imageId).get();
 
-        int imageSize= Integer.parseInt(image.getDimension());
+        int imageSize= Integer.parseInt(image.getDimensions());
         int screenSize= Integer.parseInt(screenDimensions);
 
         int ans= screenSize/imageSize;
