@@ -48,17 +48,18 @@ public class ImageService {
        // Image image=findById(image1.getId());
         //888888888888888888
         //if(imageRepository2.existsById(image.getId())){
-
-            Blog blog = image.getBlog();
-
-            List<Image> list = blog.getImageList();
-
-            list.remove(image);
-
-            blog.setImageList(list);
-
-            imageRepository2.delete(image);
-       // }
+//
+//            Blog blog = image.getBlog();
+//
+//            List<Image> list = blog.getImageList();
+//
+//            list.remove(image);
+//
+//            blog.setImageList(list);
+//
+//            imageRepository2.delete(image);
+//       // }
+        imageRepository2.delete(image);
     }
 
     public Image findById(int id) {

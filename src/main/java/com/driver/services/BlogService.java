@@ -40,17 +40,18 @@ public class BlogService {
         Blog blog= new Blog();
         blog.setContent(content);
         blog.setTitle(title);
-        List<Blog> lisOfBlog=new ArrayList<>();
+
+        blog.setUser(userRepository1.findById(userId).get());
 
         User user= userRepository1.findById(userId).get();
-        lisOfBlog=user.getBlogList();
+
+        List<Blog> lisOfBlog=user.getBlogList();
 
         lisOfBlog.add(blog);
 
         user.setBlogList(lisOfBlog);
 
-        blog.setUser(user);
-
+        blogRepository1.save(blog);
 
         userRepository1.save(user);
 
