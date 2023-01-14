@@ -65,9 +65,9 @@ public class BlogService {
     public Blog findBlogById(int blogId){
         //find a blog
         Blog blog=new Blog();
-        if(blogRepository1.existsById(blogId)) {
+        //if(blogRepository1.existsById(blogId)) {
             blog = blogRepository1.findById(blogId).get();
-        }
+       // }
         return  blog;
     }
 
