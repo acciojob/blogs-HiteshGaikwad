@@ -71,17 +71,44 @@ public class ImageService {
     }
 
     public int countImagesInScreen(Image image, String screenDimensions) {
-        //Find the number of images of given dimensions that can fit in a screen having `screenDimensions`
-        //In case the image is null, return 0
-//        if(!imageRepository2.existsById(image)){
-//            return 0;
-//        }
-//        Image image= imageRepository2.findById(image).get();
-//
-//        int imageSize= Integer.parseInt(image.getDimensions());
-//        int screenSize= Integer.parseInt(screenDimensions);
-//
-//        int ans= screenSize/imageSize;
+//        Find the number of images of given dimensions that can fit in a screen having `screenDimensions`
+//        In case the image is null, return 0
+
+        int ans=0;
+
+        String imageDimension=image.getDimensions();
+        String imageWidth="";
+        String imageHeight="", screenWidth="", screenHeight="";
+        int i=0;
+        while(imageDimension.charAt(i)!='X'){
+            imageWidth+=imageDimension.charAt(i);
+            i++;
+        }
+        i++;
+        while(i<imageDimension.length()){
+            imageHeight+=imageDimension.charAt(i);
+            i++;
+        }
+        int j=0;
+        while(screenDimensions.charAt(j)!='X'){
+            screenWidth+=screenDimensions.charAt(j);
+            j++;
+        }
+        j++;
+        while(j<screenDimensions.length()){
+            screenHeight+=screenDimensions.charAt(j);
+            j++;
+        }
+        int iWidth= Integer.parseInt(imageWidth);
+        int iHeight= Integer.parseInt(imageHeight);
+        int sWidth= Integer.parseInt(screenWidth);
+        int sHeight= Integer.parseInt(screenHeight);
+
+        int width= sWidth/iWidth;
+        int height= sHeight/iHeight;
+
+        ans=width*height;
+
         return 0;
     }
 }
