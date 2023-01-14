@@ -28,7 +28,7 @@ public class ImageService {
         List<Image> list=new ArrayList<>();
 
         int id=blog.getId();
-        if(blogRepository.existsById(id)) {
+
             Blog newBlog = blogRepository.findById(id).get();
 
              list = newBlog.getImageList();
@@ -38,11 +38,6 @@ public class ImageService {
 
             image.setBlog(newBlog);
             blogRepository.save(newBlog);
-        }else {
-            list.add(image);
-            imageRepository2.save(image);
-        }
-
 
       return image;
     }
