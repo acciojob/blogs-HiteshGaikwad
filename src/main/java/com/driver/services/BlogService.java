@@ -50,7 +50,9 @@ public class BlogService {
         user.setBlogList(lisOfBlog);
 
         blog.setUser(user);
-        userRepository1.save(user);
+       // userRepository1.save(user);
+
+        blogRepository1.save(blog);
 
        // updating the blog details
 
