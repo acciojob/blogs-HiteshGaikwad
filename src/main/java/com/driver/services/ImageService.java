@@ -25,15 +25,15 @@ public class ImageService {
         int id=blog.getId();
         Blog newBlog=blogRepository.findById(id).get();
 
-        List<Image> list=newBlog.getImagesList();
+        List<Image> list=newBlog.getImageList();
 
       Image image=new Image();
-      image.setDimension(dimensions);
+      image.setDimensions(dimensions);
       image.setDescription(description);
 
       list.add(image);
 
-      newBlog.setImagesList(list);
+      newBlog.setImageList(list);
       image.setBlog(newBlog);
 
       blogRepository.save(newBlog);
@@ -42,7 +42,7 @@ public class ImageService {
 
       imageDto.setId(image.getId());
       imageDto.setDescription(image.getDescription());
-      imageDto.setDimension(image.getDimensions());
+      imageDto.setDimensions(image.getDimensions());
 
 
       return imageDto;
@@ -54,11 +54,11 @@ public class ImageService {
 
         Blog blog=image.getBlog();
 
-        List<Image> list= blog.getImagesList();
+        List<Image> list= blog.getImageList();
 
         list.remove(image);
 
-        blog.setImagesList(list);
+        blog.setImageList(list);
 
         imageRepository2.delete(image);
     }

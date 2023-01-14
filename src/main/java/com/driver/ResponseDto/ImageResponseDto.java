@@ -6,12 +6,12 @@ public class ImageResponseDto {
 
     private String description;
 
-    private String dimension;
+    private String dimensions;
 
-    public ImageResponseDto(int id, String description, String dimension) {
+    public ImageResponseDto(int id, String description, String dimensions) {
         this.id = id;
         this.description = description;
-        this.dimension = dimension;
+        this.dimensions = dimensions;
     }
 
     public ImageResponseDto() {
@@ -33,11 +33,11 @@ public class ImageResponseDto {
         this.description = description;
     }
 
-    public String getDimension() {
-        return dimension;
+    public String getDimensions() {
+        return dimensions;
     }
 
-    public void setDimension(String dimension) {
-        this.dimension = dimension;
+    public void setDimensions(String dimensions) {
+        this.dimensions = dimensions;
     }
 }
