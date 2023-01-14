@@ -20,7 +20,7 @@ public class Blog {
 
     @CreationTimestamp
     @Temporal(value = TemporalType.TIMESTAMP)
-    private Date publishDate;
+    private Date pubDate;
 
     public Blog(String title, String content) {
         this.title = title;
@@ -52,14 +52,6 @@ public class Blog {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public Date getPublishDate() {
-        return publishDate;
-    }
-
-    public void setPublishDate(Date publishDate) {
-        this.publishDate = publishDate;
     }
 
     public User getUser() {
